@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6f0; /* Light pink background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.greeting-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    max-width: 600px;
+    width: 80%;
+    position: relative;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.title {
+    font-size: 2.5em;
+    color: #ff4081;
+    margin: 0;
+}
+
+.message {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+.heart {
+    width: 100px;
+    height: 90px;
+    position: relative;
+    margin: 20px auto;
+    animation: heartbeat 1s infinite; /* Added animation for beating effect */
+    transform-origin: center center;
+}
+
+.heart .left,
+.heart .right {
+    width: 50px;
+    height: 80px;
+    background-color: #ff4081;
+    border-radius: 50px 50px 0 0;
+    position: absolute;
+    top: 0;
+}
+
+.heart .left {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart .right {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Heart slightly enlarges for the beat */
+    }
+}
+
+.btn-surprise {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-surprise:hover {
+    background-color: #e91e63;
+}
+
+.surprise-message {
+    margin-top: 20px;
+    color: #ff4d88;
+    font-size: 1.5em;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.surprise-message p {
+    margin: 5px 0;
+}
+
+.surprise-message.hidden {
+    opacity: 0;
+}
+
+.surprise-message.animate {
+    opacity: 1;
+    animation: pop-in 0.5s ease forwards, fade-out 0.5s ease 2.5s forwards;
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
